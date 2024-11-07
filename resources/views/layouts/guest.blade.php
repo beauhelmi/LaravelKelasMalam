@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html
+<html 
 data-theme="cupcake"
 lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -29,4 +29,4 @@ lang="{{ str_replace('_', '-', app()->getLocale()) }}">
             </div>
         </div>
     </body>
-</data-theme=>
+</html>
