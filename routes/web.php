@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LearningController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -10,6 +12,10 @@ Route::get('/', function () {
 Route::get('/demo', function(){
     return view('daisyui-test');
 });
+
+Route::get('/learning',[
+    LearningController::class,'index'
+])->middleware(['auth', 'verified'])->name('learning');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -25,5 +31,8 @@ Route::middleware('auth')->group(function () {
 Route::get('kelas-malam-laravel', function(){
     echo "<h1>Selamat Datang ke Kelas Malam Laravel</h1>";
 });
+
+Route::resource('user', UserController::class)->middleware('auth');
+
 
 require __DIR__.'/auth.php';
